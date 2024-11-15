@@ -12,6 +12,7 @@ echo "SHA1SUM_ROOT of SD partition: $SHA1SUM_ROOT"
 echo "Now we will clone SD card to USB, please wait..."
 dd bs=4k count=$BLOCK_COUNT if=/dev/mmcblk0p2 of=/dev/$1
 echo "Clone from SD to USB finished..."
+echo "Now me we get the SHA1SUM of the USB, please wait..."
 
 SHA1SUM_EXT="$(dd bs=4k count=$BLOCK_COUNT if=/dev/$1 | sha1sum)"
 echo "SHA1SUM_EXT of USB partition: $SHA1SUM_EXT"
